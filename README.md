@@ -1,4 +1,4 @@
-# EECS 493 Final Projcect
+# EECS 493 Final Project
 ## Members: Simrun Buttar, Jack Cummings, Joe Ginsburg, Aishwarya Laddha
 --- 
 ### Things to remember 
