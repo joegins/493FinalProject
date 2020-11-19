@@ -3,36 +3,25 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <head>
     <link href="style.css" rel="stylesheet">
+    <script src="page.js"></script>
 
     <title>Welcome to htmlmao's Final Project!</title>
     <div id="app-4">
         <ol>
-            <li v-for="todo in todos">
+            <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">One</p>
+            <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Two</p>
+            <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Three</p>
+            <li v-for="todo in todos" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
                 {{ todo.text }}
             </li>
         </ol>
     </div>
     <button> Add Item</button>
-    <script>
-        function allowDrop(ev) {
-            ev.preventDefault();
-        }
-
-        function drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
-        }
-
-        function drop(ev) {
-            ev.preventDefault();
-            var data = ev.dataTransfer.getData("text");
-            ev.target.appendChild(document.getElementById(data));
-        }
-    </script>
 </head>
 <body>
     <h1> THIS IS THE FINAL PROJECT SITE </h1>
     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <img src="Ram.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+        <img src="Ram.jpg" draggable="true" ondragstart="drag(event)" id="drag1">
     </div>
 
     <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
