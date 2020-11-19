@@ -1,1 +1,15 @@
 /* Beginning of style.css */
+
+#div1, #div2 {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+}
