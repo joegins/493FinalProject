@@ -3,51 +3,13 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <head>
     <link href="style.css" rel="stylesheet">
-    <script src="page.js">
-
-
-    </script>
+    <script src="page.js"></script>
 
     <title>Welcome to htmlmao's Final Project!</title>
-    <div id = "app">
-      <div class="base-timer">
-        <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g class="base-timer__circle">
-            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
-            <path
-              id="base-timer-path-remaining"
-              stroke-dasharray="283"
-              class=`base-timer__path-remaining ${remainingPathColor}`
-              d="
-                M 50, 50
-                m -45, 0
-                a 45,45 0 1,0 90,0
-                a 45,45 0 1,0 -90,0
-              "> </path>
-          </svg>
-        <span id="base-timer-label" class="base-timer__label">
-          <script> 
-          const TIME_LIMIT = 60;
-          var timePassed = 0;
-          var timeLeft = TIME_LIMIT;
-          var timerInterval = null;
-          function formatTime(time) {
-              const minutes = Math.floor(time / 60);
-              
-              let seconds = time % 60;
-              
-              if (seconds < 10) {
-                seconds = `0${seconds}`;
-              }
-              return `${minutes}:${seconds}`;
-          }
-          {formatTime(timeLeft)} 
-          </script>
-        </span>
-      </div>
-    </div>
     
-    <div id="app-4">
+</head>
+<body>
+    <!-- <div id="app-4">
         <ol>
             <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">One</p>
             <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Two</p>
@@ -56,23 +18,31 @@
                 {{ todo.text }}
             </li>
         </ol>
+    </div> -->
+    <div id="app-4">
+      <div v-for="list in lists">
+        <h2>{{ list.name }}</h2>
+        <ol>
+          <li v-for="todo in list.todos"> 
+            {{ todo.text }} 
+          </li>
+        </ol>
+        <input v-bind:id="list.name + '-input'" type="text">
+        <button v-bind:id="list.name + '-button'" v-on:click="add(list.name)"> Add Item </button>
+      </div>
+      <div id="addListDiv">
+        <h2>New List?</h2>
+        <input id="addList-input'" type="text">
+        <button id="addList-button'" v-on:click="addList"> Add New List </button>
+      </div>
     </div>
-    <button> Add Item</button>
-
-    <div id ="pomodoro">
-      <button>Start Pomodoro</button>
-      <button>Pause Pomodoro</button>
-      <button>Reset Pomodoro</button>
-    </div>
-</head>
-<body>
-    <h1> THIS IS THE FINAL PROJECT SITE </h1>
+    
+    <!-- <h1> THIS IS THE FINAL PROJECT SITE </h1>
     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
         <img src="Ram.jpg" draggable="true" ondragstart="drag(event)" id="drag1">
     </div>
 
-    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <p id="demo"></p>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div> -->
 </body>
 <script>
 
@@ -80,135 +50,46 @@
     //Jack Cummings rulez
   el: '#app-4',
   data: {
-    todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+    lists: [
+      {
+        name: 'finalproj',
+        todos: [
+          {text: 'Learn JavaScript'} ,
+          {text: 'Learn Vue' },
+          {text: 'Build something awesome'}
+        ]
+      },
+      {
+        name: 'Friday',
+        todos: [
+          {text: 'Breakfast'} ,
+          {text: 'Discussion' },
+          {text: 'Walk the Dog'}
+        ]
+      }
     ]
+  },
+  methods: {
+    add: function (name){
+      let input = document.getElementById(`${name}-input`)
+      if(input.value){
+        this.lists.forEach(element => {
+          if(element.name == name){
+            element.todos.push({text: input.value})
+          }
+        });
+        input.value = ''
+      }
+    }
+    ,
+    addList: function (){
+      let input = document.getElementById(`addList-input`)
+      if(input.value){
+        this.lists.push({name: input.value, todos: []})
+        input.value = ''
+      }
+    }
   }
 })
-
-// Divides time left by the defined time limit.
-function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-}
-    
-// Update the dasharray value as time passes, starting with 283
-function setCircleDasharray() {
-  const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
-  ).toFixed(0)} 283`;
-  document
-    .getElementById("base-timer-path-remaining")
-    .setAttribute("stroke-dasharray", circleDasharray);
-}
-
-const WARNING_THRESHOLD = 10;
-const ALERT_THRESHOLD = 5;
-const COLOR_CODES = {
-  info: {
-    color: "brown"
-  },
-  warning: {
-    color: "orange",
-    threshold: WARNING_THRESHOLD
-  },
-  alert: {
-    color: "red",
-    threshold: ALERT_THRESHOLD
-  }
-};
-
-let remainingPathColor = COLOR_CODES.info.color;
-
-function formatTime(time) {
-  const minutes = Math.floor(time / 60);
-  
-  let seconds = time % 60;
-  
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
-
-  return `${minutes}:${seconds}`;
-}
-
-const TIME_LIMIT = 60;
-let timePassed = 0;
-let timeLeft = TIME_LIMIT;
-let timerInterval = null;
-
-document.getElementById("app").innerHTML = ""
-
-function startTimer() {
-  timerInterval = setInterval(() => {
-    
-    // The amount of time passed increments by one
-    timePassed = timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
-    
-    // The time left label is updated
-    document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-    setCircleDasharray();
-  }, 1000);
-}
-
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-
-
-// document.getElementById("app").innerHTML = `<div class="base-timer">
-//   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-//     <g class="base-timer__circle">
-//       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
-//       <path
-//         id="base-timer-path-remaining"
-//         stroke-dasharray="283"
-//         class="base-timer__path-remaining ${remainingPathColor}"
-//         d="
-//           M 50, 50
-//           m -45, 0
-//           a 45,45 0 1,0 90,0
-//           a 45,45 0 1,0 -90,0
-//         "
-//       ></path>
-//     </g>
-//   </svg>
-//   <span id="base-timer-label" class="base-timer__label"
-//     ${formatTime(timeLeft)}
-//   </span>
-// </div>`;
-
-
-
-
-
 </script>
 </html>
