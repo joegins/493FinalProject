@@ -24,10 +24,23 @@ function drop(ev) {
 
     }
 
-
-
     document.getElementById("app-4").replaceChild(document.getElementById(data), ev.target);
 
     document.getElementById("app-4").insertBefore(clone, document.getElementById("app-4").childNodes[dragindex]);
 
 }
+
+
+
+var countdown = 20;
+console.log(document.getElementById("countdown-number"));
+console.log($('#countdown-number'));
+var countdownNumber = document.getElementById("countdown-number");
+countdownNumber.textContent = countdown;
+
+setInterval(function() {
+    countdown = --countdown <= 0 ? 20 : countdown;
+    countdownNumber.textContent = countdown;
+}, 1000);
+
+
