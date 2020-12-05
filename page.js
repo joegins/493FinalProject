@@ -1,6 +1,40 @@
 let dragindex = 0;
 let dropindex = 0;
 let clone = "";
+let leafArray = new Array();
+let leafCount = 0;
+
+function startPomodoroFunction(){
+
+    var img = document.createElement("img");
+    img.src = "LEAF.svg";
+
+    if(leafCount > 0){
+        img.style.height = leafArray[leafCount-1].style.height + img.height;
+    }
+
+    leafArray[leafCount] = img;
+    var imgSrc  = document.getElementById("leaves");
+    //img.style.float = "top";
+    //src.css('top', parseInt(leaves.offset().top));
+    //leafArray[leafCount].style
+
+    imgSrc.appendChild(leafArray[leafCount]);
+
+    leafCount++;
+    //document.getElementById('leaves').append();
+    //$('body').append(img);
+    
+    alert("lol");
+}
+
+function pausePomodoroFunction(){
+    alert("lol");
+}
+
+function resetPomodoroFunction(){
+    alert("lol");
+}
 
 var breakStarting = new Audio('breakstarting.mp3');
 function allowDrop(ev) {

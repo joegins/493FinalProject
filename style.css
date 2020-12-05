@@ -1,5 +1,15 @@
 /* Beginning of style.css */
 
+
+#pomodoro{
+    float: right;
+}
+
+#leaves{
+    position: relative;
+    float: top;
+}
+
 #div1, #div2 {
     float: left;
     width: 1000px;
@@ -32,12 +42,11 @@ p {
   }
 
 .day {
-  background-image: radial-gradient(#95b8aa, #b6d1c6,#F2F4F3);
+    background-color: #c9cba3
 }
 
-.night 
-{
-  background-image: radial-gradient(#5dbcd2,#88c3d1, #F2F4F3)
+.night {
+    background-color: #355070
 }
 
 .switch {
