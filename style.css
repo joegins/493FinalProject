@@ -23,41 +23,6 @@ p {
     font-size: 60px;
     margin-top: 0px;
   }
-/* 
-  body {
-    height: 100%;
-    width: 100%;
-  } */
-  
-  /* #countdown {
-    position: relative;
-    margin: auto;
-    margin-top: 100px;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-  }
-  
-  
-  svg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    transform: rotateY(-180deg) rotateZ(-90deg);
-  }
-  
-  svg circle {
-    stroke-dasharray: 113px;
-    stroke-dashoffset: 0px;
-    stroke-linecap: round;
-    stroke-width: 2px;
-    stroke: green;
-    fill: none;
-    animation: countdown 20s linear infinite forwards;
-    animation-play-state:paused !important;
-} */
 
 #circlePadding {
   padding: 10px;
@@ -168,12 +133,3 @@ button[data-setter] {
   }
   
   #e-pointer { transition: transform 0.7s; }
-/* 
-  @keyframes countdown {
-    from {
-      stroke-dashoffset: 0px;
-    }
-    to {
-      stroke-dashoffset: 113px;
-    }
-  } */
