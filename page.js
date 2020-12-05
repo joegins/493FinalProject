@@ -31,9 +31,7 @@ function pausePomodoroFunction(){
     alert("lol");
 }
 
-function resetPomodoroFunction(){
-    alert("lol");
-}
+
 
 var breakStarting = new Audio('breakstarting.mp3');
 function allowDrop(ev) {
@@ -91,35 +89,6 @@ function startAnimation()
     document.getElementById("circle").classList.add("run");
 }
 
-function pauseAnimation()
-{
-    console.log(document);
-    console.log("paused");
-    document.getElementById("circle").classList.remove("run");
-    document.getElementById("circle").classList.add("paused");
-}
-
-function timer()
-{
-    startAnimation();
-    var countdown = 20;
-    console.log(document);
-    console.log(document.getElementById("countdown-number"));
-
-    var countdownNumber = document.getElementById("countdown-number");
-    countdownNumber.textContent = countdown;
-    
-    setInterval(function() {
-        countdown = --countdown <= 0 ? 20 : countdown;
-        countdownNumber.textContent = countdown;
-    }, 1000);   
-
-}
-
-function pausePomodoro()
-{
-    pauseAnimation();
-}
 
 //circle start
 let progressBar = document.querySelector('.e-c-progress');
@@ -231,6 +200,7 @@ function timer (seconds){ //counts time, takes seconds
 
 function pauseTimer(event){
   if(isStarted === false){
+    startPomodoroFunction();
     timer(wholeTime);
     isStarted = true;
     this.classList.remove('play');
@@ -246,6 +216,7 @@ function pauseTimer(event){
     this.classList.add('pause');
     timer(timeLeft);
     isPaused = isPaused ? false : true
+    pausePomodoroFunction();
   }else{
     this.classList.remove('pause');
     this.classList.add('play');
@@ -264,3 +235,7 @@ function displayTimeLeft (timeLeft){ //displays time on the input
 
 pauseBtn.addEventListener('click',pauseTimer);
 
+function resetPomodoroFunction(){
+  resetToTewntyMinutes();
+  alert("lol");
+}
