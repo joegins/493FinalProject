@@ -1,5 +1,15 @@
 /* Beginning of style.css */
 
+
+#pomodoro{
+    float: right;
+}
+
+#leaves{
+    position: relative;
+    float: top;
+}
+
 #div1, #div2 {
     float: left;
     width: 1000px;
