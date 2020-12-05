@@ -12,10 +12,7 @@
     </label>
     <div id="app-4">
         <ol>
-            <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">One</p>
-            <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Two</p>
-            <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Three</p>
-            <li v-for="todo in todos" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <li v-for="todo in todos">
                 {{ todo.text }}
             </li>
         </ol>
