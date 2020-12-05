@@ -6,8 +6,10 @@
 <head>
     <link rel="icon" href="favicon.png">
     <link href="style.css" rel="stylesheet">
-    <title>Welcome to htmlmao's Final Project!</title>
-   
+    <label class = "switch">
+      <input type = "checkbox" id="check" onclick="toggleBackground()"/>
+      <span class = "slider round"></span>
+    </label>
     <div id="app-4">
         <ol>
             <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">One</p>
@@ -19,7 +21,6 @@
         </ol>
     </div>
     <button> Add Item</button>
-
     <div id ="pomodoro">
       <button>Start Pomodoro</button>
       <button>Pause Pomodoro</button>

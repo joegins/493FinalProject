@@ -7,20 +7,24 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-
-var currentTime = new Date().getHours();
-console.log(currentTime);
-if(document.body)
+document.body.className = "day";
+function toggleBackground()
 {
-  if(8 <= currentTime && currentTime < 20)
+  let checkBox = document.getElementById("check");
+  
+  if(document.body)
   {
-    document.body.className = "day";
-  }
-  else
-  {
-    document.body.className = "night";
+    if(checkBox.checked == true)
+    {
+      document.body.className = "night";
+    }
+    else
+    {
+      document.body.className = "day";
+    }
   }
 }
+
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
