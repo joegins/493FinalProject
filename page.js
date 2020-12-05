@@ -9,15 +9,14 @@ function startPomodoroFunction(){
     var img = document.createElement("img");
     img.src = "LEAF.svg";
 
-    if(leafCount > 0){
-        img.style.height = leafArray[leafCount-1].style.height + img.height;
+    if(leafCount > 0){ 
+        img.style.top = leafArray[leafCount-1].style.top + img.height;
+        console.log(img.style.top);
+        console.log(leafArray.length);
     }
 
     leafArray[leafCount] = img;
     var imgSrc  = document.getElementById("leaves");
-    //img.style.float = "top";
-    //src.css('top', parseInt(leaves.offset().top));
-    //leafArray[leafCount].style
 
     imgSrc.appendChild(leafArray[leafCount]);
 
@@ -25,7 +24,7 @@ function startPomodoroFunction(){
     //document.getElementById('leaves').append();
     //$('body').append(img);
     
-    alert("lol");
+    //alert("lol");
 }
 
 function pausePomodoroFunction(){
@@ -41,20 +40,24 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-
-var currentTime = new Date().getHours();
-console.log(currentTime);
-if(document.body)
+document.body.className = "day";
+function toggleBackground()
 {
-  if(8 <= currentTime && currentTime < 20)
+  let checkBox = document.getElementById("check");
+  
+  if(document.body)
   {
-    document.body.className = "day";
-  }
-  else
-  {
-    document.body.className = "night";
+    if(checkBox.checked == true)
+    {
+      document.body.className = "night";
+    }
+    else
+    {
+      document.body.className = "day";
+    }
   }
 }
+
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
