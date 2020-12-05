@@ -186,6 +186,7 @@ function timer (seconds){ //counts time, takes seconds
       else if (setToFive == 0)
       {
         resetToTwentyMinutes();
+        startPomodoroFunction();
         setToFive = 1;
       }
       clearInterval(intervalTimer);
@@ -209,7 +210,7 @@ function pauseTimer(event){
     isStarted = true;
     this.classList.remove('play');
     this.classList.add('pause');
-    
+    startPomodoroFunction();
     setterBtns.forEach(function(btn){
       btn.disabled = true;
       btn.style.opacity = 0.5;
@@ -221,6 +222,7 @@ function pauseTimer(event){
     timer(timeLeft);
     isPaused = isPaused ? false : true
   }else{
+    pausePomodoroFunction();
     this.classList.remove('pause');
     this.classList.add('play');
     clearInterval(intervalTimer);
