@@ -10,7 +10,7 @@ function startPomodoroFunction(){
     img.src = "LEAF.svg";
 
     if(leafCount > 0){ 
-        img.style.top = leafArray[leafCount-1].style.top + img.height + "px";
+      img.style.top = leafArray[leafCount-1].style.top + img.height + "px";
         //console.log(img.style.top);
         //console.log(leafArray.length);
     }
@@ -180,7 +180,6 @@ function timer (seconds){ //counts time, takes seconds
     if(timeLeft < 0){
       if(setToFive == 1)
       {
-        startPomodoroFunction();
         resetToFiveMinutes();
         setToFive = 0;
       }
@@ -206,7 +205,6 @@ function timer (seconds){ //counts time, takes seconds
 
 function pauseTimer(event){
   if(isStarted === false){
-    startPomodoroFunction();
     timer(wholeTime);
     isStarted = true;
     this.classList.remove('play');
@@ -223,7 +221,6 @@ function pauseTimer(event){
     timer(timeLeft);
     isPaused = isPaused ? false : true
   }else{
-    pausePomodoroFunction();
     this.classList.remove('pause');
     this.classList.add('play');
     clearInterval(intervalTimer);
@@ -245,12 +242,13 @@ function reset()
 {
   clearInterval(intervalTimer);
   isStarted = false;
+  isPaused = false;
   setterBtns.forEach(function(btn){
     btn.disabled = false;
     btn.style.opacity = 1;
   });
-  wholeTime = 20 * 60;
   displayTimeLeft(wholeTime);
   pauseBtn.classList.remove('pause');
   pauseBtn.classList.add('play');
+  return ;
 }
