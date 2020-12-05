@@ -19,11 +19,15 @@
     border: 1px solid black;
 }
 
-#encapsulate
-{
-  border-radius: 10000px;
-  position: absolute;
-  border: 1px solid beige;
+.listbuttons {
+    color: #b56576;
+    font-family: 'Roboto';
+}
+
+#encapsulate {
+    border-radius: 10000px;
+    position: absolute;
+    border: 1px solid beige;
 }
 
 #lists-elt {
@@ -70,12 +74,11 @@ button {
     outline: none;
     background: transparent;
     border: none;
-    font-family: 'Roboto';
+    font-family: 'Times New Roman', Times, serif;
     font-weight: 300;
     font-size: 18px;
     width: 25px;
     height: 30px;
-    color: #5E503F;
     cursor: pointer;
 }
 
