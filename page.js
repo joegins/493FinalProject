@@ -9,15 +9,14 @@ function startPomodoroFunction(){
     var img = document.createElement("img");
     img.src = "LEAF.svg";
 
-    if(leafCount > 0){
-        img.style.height = leafArray[leafCount-1].style.height + img.height;
+    if(leafCount > 0){ 
+        img.style.top = leafArray[leafCount-1].style.top + img.height;
+        console.log(img.style.top);
+        console.log(leafArray.length);
     }
 
     leafArray[leafCount] = img;
     var imgSrc  = document.getElementById("leaves");
-    //img.style.float = "top";
-    //src.css('top', parseInt(leaves.offset().top));
-    //leafArray[leafCount].style
 
     imgSrc.appendChild(leafArray[leafCount]);
 
@@ -25,7 +24,7 @@ function startPomodoroFunction(){
     //document.getElementById('leaves').append();
     //$('body').append(img);
     
-    alert("lol");
+    //alert("lol");
 }
 
 function pausePomodoroFunction(){
