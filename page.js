@@ -10,11 +10,13 @@ function startPomodoroFunction(){
     img.src = "LEAF.svg";
 
     if(leafCount > 0){ 
-        img.style.top = leafArray[leafCount-1].style.top + img.height;
-        console.log(img.style.top);
-        console.log(leafArray.length);
+        img.style.top = leafArray[leafCount-1].style.top + img.height + "px";
+        //console.log(img.style.top);
+        //console.log(leafArray.length);
     }
 
+    //img.style.marginTop= img.height;
+    
     leafArray[leafCount] = img;
     var imgSrc  = document.getElementById("leaves");
 
