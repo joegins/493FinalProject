@@ -28,10 +28,13 @@ function startPomodoroFunction(){
 }
 
 function pausePomodoroFunction(){
-    alert("lol");
+   console.log('paused');
 }
 
-
+function resetPomodoroFunction(){
+  reset();
+  console.log("reset");
+}
 
 var breakStarting = new Audio('breakstarting.mp3');
 function allowDrop(ev) {
@@ -216,8 +219,8 @@ function pauseTimer(event){
     this.classList.add('pause');
     timer(timeLeft);
     isPaused = isPaused ? false : true
-    pausePomodoroFunction();
   }else{
+    pausePomodoroFunction();
     this.classList.remove('pause');
     this.classList.add('play');
     clearInterval(intervalTimer);
@@ -235,7 +238,16 @@ function displayTimeLeft (timeLeft){ //displays time on the input
 
 pauseBtn.addEventListener('click',pauseTimer);
 
-function resetPomodoroFunction(){
-  resetToTewntyMinutes();
-  alert("lol");
+function reset()
+{
+  clearInterval(intervalTimer);
+  isStarted = false;
+  setterBtns.forEach(function(btn){
+    btn.disabled = false;
+    btn.style.opacity = 1;
+  });
+  wholeTime = 20 * 60;
+  displayTimeLeft(wholeTime);
+  pauseBtn.classList.remove('pause');
+  pauseBtn.classList.add('play');
 }
