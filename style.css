@@ -31,10 +31,14 @@ p {
     margin-top: 0px;
   }
 
-/* div 
+.day {
+  background-image: radial-gradient(#95b8aa, #b6d1c6,#F2F4F3);
+}
+
+.night 
 {
-  padding : 10px;
-} */
+  background-image: radial-gradient(#5dbcd2,#88c3d1, #F2F4F3)
+}
 
 button[data-setter] {
   outline: none;

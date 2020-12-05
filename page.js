@@ -9,19 +9,19 @@ function allowDrop(ev) {
 
 
 var currentTime = new Date().getHours();
-currentTime = 10;
 console.log(currentTime);
 if(document.body)
 {
   if(8 <= currentTime && currentTime < 20)
   {
-    document.body.background = "MorningBackground2.png";
+    document.body.className = "day";
   }
   else
   {
-    document.body.background = "nighttime2.png";
+    document.body.className = "night";
   }
 }
+
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
