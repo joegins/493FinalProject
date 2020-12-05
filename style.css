@@ -19,20 +19,15 @@
     border: 1px solid black;
 }
 
-.listbuttons {
-    color: #b56576;
-    font-family: 'Roboto';
+#encapsulate
+{
+  border-radius: 10000px;
+  position: absolute;
+  border: 1px solid beige;
 }
 
-#encapsulate {
-    border-radius: 10000px;
-    position: absolute;
-    border: 1px solid beige;
-}
-
-#lists-elt {
+#app-4 {
     font-size: 24px;
-    font-family: 'Roboto';
 }
 
 img {
@@ -69,22 +64,8 @@ button[data-setter] {
   color: #5E503F;
   cursor: pointer;
 }
-
-button {
-    outline: none;
-    background: transparent;
-    border: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 300;
-    font-size: 18px;
-    width: 25px;
-    height: 30px;
-    cursor: pointer;
-}
-
-button[data-setter]:hover {
-    opacity: 0.5;
-}
+  
+  button[data-setter]:hover { opacity: 0.5; }
   
   .setters {
     position: absolute;
