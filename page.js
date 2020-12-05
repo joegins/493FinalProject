@@ -5,8 +5,6 @@ let leafArray = new Array();
 let leafCount = 0;
 
 function startPomodoroFunction(){
-    //var img =  $(createItemDivString(throwingItemIdx, "leaf","LEAF.svg"));
-    //document.getElementById("leaves").innerHTML = "<img src='LEAF.svg'/>"
 
     var img = document.createElement("img");
     img.src = "LEAF.svg";
@@ -14,7 +12,6 @@ function startPomodoroFunction(){
     if(leafCount > 0){
         img.style.height = leafArray[leafCount-1].style.height + img.height;
     }
-    //top: 150px;
 
     leafArray[leafCount] = img;
     var imgSrc  = document.getElementById("leaves");
