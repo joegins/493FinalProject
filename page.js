@@ -178,6 +178,7 @@ function timer (seconds){ //counts time, takes seconds
     if(timeLeft < 0){
       if(setToFive == 1)
       {
+        startPomodoroFunction();
         resetToFiveMinutes();
         setToFive = 0;
       }
