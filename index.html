@@ -1,5 +1,5 @@
 <html>
-  <!-- development version, includes helpful console warnings -->
+<!-- development version, includes helpful console warnings -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <meta http-equiv="pragma" content="no-cache" />
 
@@ -11,14 +11,6 @@
         <input type="checkbox" id="check" onclick="toggleBackground()" />
         <span class="slider round"></span>
     </label>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
 
     <div id="pomodoro">
@@ -34,42 +26,44 @@
 
 </head>
 <body>
-    
+
 </body>
 
-  <div id="encapsulate">
+
+<!-- This is the div where the TODO lists come in -->
+<div id="lists-elt"></div>
+<br /><br /><br /><br /><br /><br /><br /><br />
+<div id="encapsulate">
     <div class="setters">
-      <div class="minutes-set">
-        <button data-setter="minutes-plus">+</button>
-        <button data-setter="minutes-minus">-</button>
-      </div>
-      <div class="seconds-set">
-        <button data-setter="seconds-plus">+</button>
-        <button data-setter="seconds-minus">-</button>
-      </div>
+        <div class="minutes-set">
+            <button data-setter="minutes-plus">+</button>
+            <button data-setter="minutes-minus">-</button>
+        </div>
+        <div class="seconds-set">
+            <button data-setter="seconds-plus">+</button>
+            <button data-setter="seconds-minus">-</button>
+        </div>
     </div>
     <div class="circle">
-      <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-         <g transform="translate(110,110)">
-            <circle r="100" class="e-c-base"/>
-            <g transform="rotate(-90)">
-               <circle r="100" class="e-c-progress"/>
-               <g id="e-pointer">
-                  <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
-               </g>
+        <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(110,110)">
+                <circle r="100" class="e-c-base" />
+                <g transform="rotate(-90)">
+                    <circle r="100" class="e-c-progress" />
+                    <g id="e-pointer">
+                        <circle cx="100" cy="0" r="8" class="e-c-pointer" />
+                    </g>
+                </g>
             </g>
-         </g>
-      </svg>
+        </svg>
     </div>
     <div class="controlls">
-      <div class="display-remain-time"> 00:45</div>
-      <button class="play" id="pause"></button>
+        <div class="display-remain-time"> 00:45</div>
+        <button class="play" id="pause"></button>
     </div>
-    
-  </div>
-  <!-- This is the div where the TODO lists come in -->
-  <div id="lists-elt"></div>
-  
+
+</div>
+
 
 
 <!-- This is the script tag for the todoList stuff -->
@@ -92,12 +86,12 @@
           }
       },
       props:['name'],
-      template:`<div>
+      template:`<div id="listbuttons">
                   <h3>{{ name }}</h3>
                   <ol>
                       <li v-for="(todo, index) in todos" v-bind:key='todo.priority'>
                           <span>{{todo.text}}</span>
-                          <i class="arrow up" v-on:click="move(index, index-1)"></i> 
+                          <i class="arrow up" v-on:click="move(index, index-1)"></i>
                           <i class="arrow down" v-on:click="move(index, index+1)"></i>
                           <span class=delete v-on:click="del(index)">X</span>
                       </li>
@@ -123,7 +117,7 @@
           }
       }
   })
-  
+
   var lists = new Vue({
       el: '#lists-elt',
       data: {
@@ -157,5 +151,5 @@
   })
 
 </script>
-<script src="page.js"> </script>
+<script src="page.js"></script>
 </html>
