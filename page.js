@@ -1,20 +1,32 @@
 let dragindex = 0;
 let dropindex = 0;
 let clone = "";
+var img = document.createElement("img");
+img.src = "LEAF.svg";
 
 function startPomodoroFunction(){
-
     var img = document.createElement("img");
     img.src = "slowedGif.gif"
     img.id = "leaves";
     var imgSrc  = document.getElementById("leaves");
-
     imgSrc.appendChild(img);
 }
 
 function pausePomodoroFunction(){
    console.log('paused');
+   setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);
 }
+
+function graduallyFadeAndRemoveElement(elementObj){
+    // Fade to 0 opacity over 2 seconds
+
+    var element = document.getElementById("leaves");
+
+    elementObj.fadeTo(2000, 0, function(){
+        element.parentNode.removeChild(element);
+    });
+        
+  }
 
 function resetPomodoroFunction(){
   reset();
