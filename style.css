@@ -28,6 +28,7 @@
 
 #app-4 {
     font-size: 24px;
+    font-family: 'Roboto';
 }
 
 img {
@@ -64,8 +65,23 @@ button[data-setter] {
   color: #5E503F;
   cursor: pointer;
 }
-  
-  button[data-setter]:hover { opacity: 0.5; }
+
+button {
+    outline: none;
+    background: transparent;
+    border: none;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 18px;
+    width: 25px;
+    height: 30px;
+    color: #5E503F;
+    cursor: pointer;
+}
+
+button[data-setter]:hover {
+    opacity: 0.5;
+}
   
   .setters {
     position: absolute;
