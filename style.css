@@ -3,11 +3,15 @@
 
 #pomodoro{
     float: right;
+    margin-top: 200px;
+    margin-right: 200px;
+
 }
 
 #leaves{
     position: relative;
     float: top;
+
 }
 
 #div1, #div2 {
