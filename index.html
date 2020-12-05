@@ -8,7 +8,7 @@
     <link href="style.css" rel="stylesheet">
     <title>Welcome to htmlmao's Final Project!</title>
    
-    <!-- <div id="app-4">
+    <div id="app-4">
         <ol>
             <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">One</p>
             <p draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Two</p>
@@ -18,23 +18,16 @@
             </li>
         </ol>
     </div>
-    <button> Add Item</button> -->
+    <button> Add Item</button>
 
-    <!-- <div id="countdown">
-      <div id="countdown-number" > </div>
-        <svg id = "circle">
-          <circle r= "18" cx="20" cy="20"></circle>
-        </svg>
-    </div> -->
-
-    <!-- <div id ="pomodoro">
-      <button onclick="timer()">Start Pomodoro</button>
-      <button onclick="pausePomordoro()">Pause Pomodoro</button>
+    <div id ="pomodoro">
+      <button>Start Pomodoro</button>
+      <button>Pause Pomodoro</button>
       <button>Reset Pomodoro</button>
-    </div> -->
+    </div>
     
 </head>
-<!-- <body>
+<body>
     <h1> THIS IS THE FINAL PROJECT SITE </h1>
     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
         <img src="Ram.jpg" draggable="true" ondragstart="drag(event)" id="drag1">
@@ -42,67 +35,50 @@
 
     <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     <p id="demo"></p>
-</body> -->
+</body>
 
-  <div class="setters">
-    <div class="minutes-set">
-      <button data-setter="minutes-plus">+</button>
-      <button data-setter="minutes-minus">-</button>
+  <div id="encapsulate">
+    <div class="setters">
+      <div class="minutes-set">
+        <button data-setter="minutes-plus">+</button>
+        <button data-setter="minutes-minus">-</button>
+      </div>
+      <div class="seconds-set">
+        <button data-setter="seconds-plus">+</button>
+        <button data-setter="seconds-minus">-</button>
+      </div>
     </div>
-    <div class="seconds-set">
-      <button data-setter="seconds-plus">+</button>
-      <button data-setter="seconds-minus">-</button>
+    <div class="circle">
+      <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+         <g transform="translate(110,110)">
+            <circle r="100" class="e-c-base"/>
+            <g transform="rotate(-90)">
+               <circle r="100" class="e-c-progress"/>
+               <g id="e-pointer">
+                  <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
+               </g>
+            </g>
+         </g>
+      </svg>
     </div>
-  </div>
-  <div class="circle">
-    <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-       <g transform="translate(110,110)">
-          <circle r="100" class="e-c-base"/>
-          <g transform="rotate(-90)">
-             <circle r="100" class="e-c-progress"/>
-             <g id="e-pointer">
-                <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
-             </g>
-          </g>
-       </g>
-    </svg>
-  </div>
-  <div class="controlls">
-    <div class="display-remain-time"> 00:45</div>
-    <button class="play" id="pause"></button>
+    <div class="controlls">
+      <div class="display-remain-time"> 00:45</div>
+      <button class="play" id="pause"></button>
+    </div>
   </div>
 <script>
 
-//   var app4 = new Vue({
-//     //Jack Cummings rulez
-//   el: '#app-4',
-//   data: {
-//     todos: [
-//       { text: 'Learn JavaScript' },
-//       { text: 'Learn Vue' },
-//       { text: 'Build something awesome' }
-//     ]
-//   }
-// })
-
-
-const WARNING_THRESHOLD = 10;
-const ALERT_THRESHOLD = 5;
-const COLOR_CODES = {
-  info: {
-    color: "brown"
-  },
-  warning: {
-    color: "orange",
-    threshold: WARNING_THRESHOLD
-  },
-  alert: {
-    color: "red",
-    threshold: ALERT_THRESHOLD
+  var app4 = new Vue({
+    //Jack Cummings rulez
+  el: '#app-4',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
   }
-};
-
-
+})
 </script>
 <script src="page.js"> </script>
 </html>

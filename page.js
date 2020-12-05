@@ -2,7 +2,7 @@ let dragindex = 0;
 let dropindex = 0;
 let clone = "";
 
-
+var breakStarting = new Audio('breakstarting.mp3');
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -90,10 +90,11 @@ const setterBtns = document.querySelectorAll('button[data-setter]');
 
 let intervalTimer;
 let timeLeft;
-let wholeTime = 0.5 * 60; // manage this to set the whole time 
+let wholeTime = 20 * 60; // manage this to set the whole time 
 let isPaused = false;
 let isStarted = false;
 
+let setToFive = 1; // default is that it should go to 5 after first countdown to 0
 
 update(wholeTime,wholeTime); //refreshes progress bar
 displayTimeLeft(wholeTime);
@@ -126,6 +127,24 @@ for (var i = 0; i < setterBtns.length; i++) {
     });
 }
 
+function resetToFiveMinutes()
+{
+  breakStarting.play();
+  wholeTime = 5 * 60;
+  progressBar.style.stroke = '#8acaed';
+  pointer.style.stroke = '#8acaed';
+  displayOutput.style.color = '#8acaed';
+}
+
+function resetToTwentyMinutes()
+{
+  breakStarting.play();
+  wholeTime = 20 * 60;
+  progressBar.style.stroke = '#F7958E';
+  pointer.style.stroke = '#F7958E';
+  displayOutput.style.color = '#F7958E';
+}
+
 function timer (seconds){ //counts time, takes seconds
   let remainTime = Date.now() + (seconds * 1000);
   displayTimeLeft(seconds);
@@ -133,6 +152,16 @@ function timer (seconds){ //counts time, takes seconds
   intervalTimer = setInterval(function(){
     timeLeft = Math.round((remainTime - Date.now()) / 1000);
     if(timeLeft < 0){
+      if(setToFive == 1)
+      {
+        resetToFiveMinutes();
+        setToFive = 0;
+      }
+      else if (setToFive == 0)
+      {
+        resetToTwentyMinutes();
+        setToFive = 1;
+      }
       clearInterval(intervalTimer);
       isStarted = false;
       setterBtns.forEach(function(btn){
