@@ -7,6 +7,21 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
+
+var currentTime = new Date().getHours();
+currentTime = 10;
+console.log(currentTime);
+if(document.body)
+{
+  if(8 <= currentTime && currentTime < 20)
+  {
+    document.body.background = "MorningBackground2.png";
+  }
+  else
+  {
+    document.body.background = "nighttime2.png";
+  }
+}
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
