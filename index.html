@@ -6,7 +6,6 @@
 <head>
     <link rel="icon" href="favicon.png">
     <link href="style.css" rel="stylesheet">
-    <link href="listStyles.css" rel="stylesheet">
     <label class="switch">
         <input type="checkbox" id="check" onclick="toggleBackground()" />
         <span class="slider round"></span>
@@ -85,7 +84,6 @@
       },
       props:['name'],
       template:`<div id="listbuttons">
-                  <h3>{{ name }}</h3>
                   <ol>
                       <li v-for="(todo, index) in todos" v-bind:key='todo.priority'>
                           <span>{{todo.text}}</span>
@@ -126,13 +124,19 @@
           listNames: [],
           addListInput: ''
       },
+
       template: `
           <div>
               <h1> Your Todo Lists! </h1>
               <input id="main-input'" v-model="addListInput" v-on:keyup.enter="addList()" type="text">
               <button id="main-button'" v-on:click="addList()"> Add New List </button>
               <div v-for="(list, index) in listNames">
-                  <todo-list :name=list.name></todo-list>
+                  <h3>{{ list.name }} 
+                    <i class="arrow up" v-on:click="move(index, index-1)"></i>
+                    <i class="arrow down" v-on:click="move(index, index+1)"></i>
+                    <span class=delete v-on:click="del(index)">X</span>
+                    <todo-list :name=list.name></todo-list>
+                  </h3>
               </div>
           </div>`,
       methods: {
@@ -144,6 +148,12 @@
                   this.addListInput = ''
               }
           },
+          move(from, to){
+              this.listNames.move(from, to);
+          },
+          del(index){
+              this.listNames.splice(index, 1);
+          }
       }
 
   })
