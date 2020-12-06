@@ -8,15 +8,18 @@
     <link rel="icon" href="favicon.png">
     <link href="style.css" rel="stylesheet">
     <link href="listStyles.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <div id="header">
     <label class="switch">
         <input type="checkbox" id="check" onclick="toggleBackground()" />
         <span class="slider round"></span>
         <p>Light/Dark Mode</p>
     </label>
-</head>
-
-
-<body>
+    <h1 id="header-text">Todo Lists and Pomodoro: A Tale as Old as Tomatoes</h1>
+  </div>
   <div class="wrapper">
     <div id="lists-elt"></div>
     <div id="pomodoro">
@@ -132,7 +135,7 @@
         template: `
             <div>
                 <div id=main-stuff>
-                  <h1> Your Todo Lists! </h1>
+                  <h2 class="header-text"> Your Todo Lists! </h2>
                   <input id="main-input'" v-model="addListInput" v-on:keyup.enter="addList()" type="text">
                   <button id="main-button'" v-on:click="addList()"> Add New List </button>
                 </div>
