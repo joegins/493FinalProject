@@ -1,19 +1,32 @@
 let dragindex = 0;
 let dropindex = 0;
 let clone = "";
+let timer1 = 0;
 var img = document.createElement("img");
-img.src = "slowedGif.gif"
+img.src = "slowedGif.gif";
+let clickedOnce = 0;
 
 function startPomodoroFunction(){
-    //clearTimeout();
+
     img.style.visibility = "visible";
     var imgSrc  = document.getElementById("leaves");
     imgSrc.appendChild(img);
+    
 }
 
 function pausePomodoroFunction(){
-   console.log('paused');
-   setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);
+
+  if(clickedOnce == 0){
+    console.log('paused');
+    timer1 = setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);
+    play = 1;
+  }else{
+    console.log('played');
+    clearTimeout(timer1);
+    timer1 = 0;
+    play = 0;
+  }
+
    
 }
 
