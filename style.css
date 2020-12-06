@@ -5,6 +5,7 @@
     float: right;
     margin-top: 400px;
     margin-right: 100px;
+    position: sticky;
 
 }
 
@@ -25,7 +26,7 @@
 
 #encapsulate {
     border-radius: 10000px;
-    position: absolute;
+    position: fixed;
     top: 50px;
     right: 300px;
     width: 100px;
