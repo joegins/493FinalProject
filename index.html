@@ -6,6 +6,7 @@
 <head>
     <link rel="icon" href="favicon.png">
     <link href="style.css" rel="stylesheet">
+    <link href="listStyles.css" rel="stylesheet">
     <label class="switch">
         <input type="checkbox" id="check" onclick="toggleBackground()" />
         <span class="slider round"></span>
@@ -16,6 +17,8 @@
 
 </head>
 <body>
+  <div class="wrapper">
+    <div id="lists-elt"></div>
     <div id="pomodoro">
         <div id="encapsulate">
             <div class="setters">
@@ -53,15 +56,7 @@
             </div>
         </div>
     </div>
-    <div id="lists-elt"></div>
-
-</body>
-
-
-<!-- This is the div where the TODO lists come in -->
-
-
-
+  </div>
 
 <!-- This is the script tag for the todoList stuff -->
 <script>
@@ -135,10 +130,12 @@
 
       template: `
           <div>
-              <h1> Your Todo Lists! </h1>
-              <input id="main-input'" v-model="addListInput" v-on:keyup.enter="addList()" type="text">
-              <button id="main-button'" v-on:click="addList()"> Add New List </button>
-              <div v-for="(list, index) in listNames">
+              <div id=main-stuff>
+                <h1> Your Todo Lists! </h1>
+                <input id="main-input'" v-model="addListInput" v-on:keyup.enter="addList()" type="text">
+                <button id="main-button'" v-on:click="addList()"> Add New List </button>
+              </div>
+              <div v-for="(list, index) in listNames" class="todo-list">
                   <todo-list :name=list.name v-on:deleteList="del(index)"></todo-list>
               </div>
           </div>`,
@@ -157,7 +154,7 @@
       }
 
   })
-
-</script>
-<script src="page.js"></script>
+  </script>
+  <script src="page.js"></script>
+</body>
 </html>
