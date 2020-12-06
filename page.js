@@ -16,14 +16,18 @@ function startPomodoroFunction(){
 }
 
 function pausePomodoroFunction(){
-    clicks++;
+    
     console.log(clicks);
     if(clicks%2 == 0){
       console.log('paused');
-      timer1 = setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);   
+      clicks++;
+      timer1 = setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000); 
+      //alert("your plant is dead. Reset the clock");  
     }else{
       clearTimeout(timer1);
+      clicks++;
     }
+    
     //t
 }
 
