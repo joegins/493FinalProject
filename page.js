@@ -4,7 +4,8 @@ let clone = "";
 let timer1 = 0;
 var img = document.createElement("img");
 img.src = "slowedGif.gif";
-let clickedOnce = 0;
+let timeNow = 0;
+let clicks = 0;
 
 function startPomodoroFunction(){
 
@@ -15,18 +16,15 @@ function startPomodoroFunction(){
 }
 
 function pausePomodoroFunction(){
-
-  if(clickedOnce == 0){
-    console.log('paused');
-    clickedOnce = 1;
-    timer1 = setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);
-  }else{
-    console.log('played');
-    clearTimeout(timer1);
-    timer1 = 0;
-    clickedOnce = 0;
-  }
-   
+    clicks++;
+    console.log(clicks);
+    if(clicks%2 == 0){
+      console.log('paused');
+      timer1 = setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);   
+    }else{
+      clearTimeout(timer1);
+    }
+    //t
 }
 
 function graduallyFadeAndRemoveElement(elementObj){
