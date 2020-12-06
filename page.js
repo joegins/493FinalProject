@@ -8,7 +8,7 @@ let timeNow = 0;
 let clicks = 0;
 
 function startPomodoroFunction(){
-
+  
     img.style.visibility = "visible";
     var imgSrc  = document.getElementById("leaves");
     imgSrc.appendChild(img);
@@ -20,14 +20,14 @@ function pausePomodoroFunction(){
     console.log(clicks);
     if(clicks%2 == 0){
       console.log('paused');
-      clicks++;
+      //clicks++;
       timer1 = setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000); 
       //alert("your plant is dead. Reset the clock");  
     }else{
-      clearTimeout(timer1);
-      clicks++;
+      console.log("played");
+      //clicks++;
     }
-    
+    clicks++
     //t
 }
 
@@ -221,6 +221,8 @@ function pauseTimer(event){
     });
 
   } else if(isPaused){
+    //clicks++;
+    clearTimeout(timer1);
     this.classList.remove('play');
     this.classList.add('pause');
     timer(timeLeft);
@@ -246,6 +248,7 @@ pauseBtn.addEventListener('click',pauseTimer);
 
 function reset()
 {
+  clearTimeout(timer1);
   clearInterval(intervalTimer);
   isStarted = false;
   isPaused = false;
