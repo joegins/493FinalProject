@@ -1,32 +1,36 @@
 /* code adapted from https://www.w3schools.com/howto/howto_css_arrows.asp */
 .arrow {
-  border: solid black;
+  border: solid #d08c60;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
   margin-left: 5px;
 }
 .arrow:hover{
-    border-width: 0 5px 5px 0;
-    margin-left: 3px;
+  border-width: 0 5px 5px 0;
+  margin-left: 3px;
 }
 
 .up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+transform: rotate(-135deg);
+-webkit-transform: rotate(-135deg);
 }
 
 .down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+transform: rotate(45deg);
+-webkit-transform: rotate(45deg);
 }
 
 .delete {
   color: red;
   text-emphasis: bold;
-  border: solid black;
-  border-width: 1px;
   display: inline-block;
   padding: 3px;
   margin-left: 5px;
+  font-family: 'Roboto';
 }
+
+/* .todo-list {
+  float: left;
+} */
+  
