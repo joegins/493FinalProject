@@ -2,17 +2,13 @@
 
 
 #pomodoro{
-    float: right;
-    margin-top: 400px;
-    margin-right: 100px;
-    position: sticky;
+
 
 }
 
 #leaves{
     position: relative;
     float: top;
-
 }
 
 #div1, #div2 {
@@ -27,9 +23,13 @@
 #encapsulate {
     border-radius: 10000px;
     position: fixed;
-    top: 50px;
-    right: 300px;
-    width: 100px;
+    top: 25px;
+    right: 0px;
+    width: 350px;
+}
+
+#reset{
+    padding-left: 98px;
 }
 
 #app-4 {
