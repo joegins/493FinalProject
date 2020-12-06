@@ -69,27 +69,10 @@ button[data-setter] {
   color: #5E503F;
   cursor: pointer;
 }
-<<<<<<< HEAD
-
-button {
-    outline: none;
-    background: transparent;
-    border: none;
-    font-family: 'Roboto';
-    font-weight: 300;
-    font-size: 18px;
-    width: 25px;
-    height: 30px;
-    cursor: pointer;
-}
 
 button[data-setter]:hover {
     opacity: 0.5;
 }
-=======
-  
-  button[data-setter]:hover { opacity: 0.5; }
->>>>>>> dfc29bfe8ebcbd645f6192c1917f871a4c9b0e68
   
   .setters {
     position: absolute;
