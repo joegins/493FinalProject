@@ -18,15 +18,14 @@ function pausePomodoroFunction(){
 
   if(clickedOnce == 0){
     console.log('paused');
+    clickedOnce = 1;
     timer1 = setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);
-    play = 1;
   }else{
     console.log('played');
     clearTimeout(timer1);
     timer1 = 0;
-    play = 0;
+    clickedOnce = 0;
   }
-
    
 }
 

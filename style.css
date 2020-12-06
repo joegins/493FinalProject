@@ -177,6 +177,14 @@ button[data-setter]:hover {
     width: 0;
     height: 0;
   }
+
+.switch p {
+    font-size: 12px;
+    padding-left: 55px;
+    padding-top: 1px;
+    width: 90px;
+    font-weight: bold;
+}
   
   /* The slider */
   .slider {
