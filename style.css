@@ -32,6 +32,10 @@
     width: 100px;
 }
 
+#reset{
+    padding-left: 110px;
+}
+
 #app-4 {
     font-size: 24px;
 }
