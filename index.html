@@ -11,11 +11,9 @@
         <input type="checkbox" id="check" onclick="toggleBackground()" />
         <span class="slider round"></span>
     </label>
-
-
-    
-
 </head>
+
+
 <body>
   <div class="wrapper">
     <div id="lists-elt"></div>
@@ -60,101 +58,101 @@
   </div>
 
 <!-- This is the script tag for the todoList stuff -->
-<script>
-  //moving list items up and down is courtesy of https://codepen.io/xtrasmal/pen/PjgMqL
-  Array.prototype.move = function(from, to) {
-      this.splice(to, 0, this.splice(from, 1)[0]);
-      return this;
-  };
+  <script>
+    //moving list items up and down is courtesy of https://codepen.io/xtrasmal/pen/PjgMqL
+    Array.prototype.move = function(from, to) {
+        this.splice(to, 0, this.splice(from, 1)[0]);
+        return this;
+    };
 
-  Vue.component('todo-list',{
-      data: () => {
-          return {
-              // todos: [
-              //     {text: 'item1'},
-              //     {text: 'item2'}
-              // ],
-              todos: [],
-              addTodoInput: ''
-          }
-      },
-      props:['name'],
-      template:`<div>
-                  <h3>
-                    {{ name }} 
-                    <span class=delete v-on:click="deleteList()">X</span>
-                  </h3>
-                    <ol>
-                        <li v-for="(todo, index) in todos" v-bind:key='todo.priority'>
-                            <span>{{todo.text}}</span>
-                            <i class="arrow up" v-on:click="move(index, index-1)"></i>
-                            <i class="arrow down" v-on:click="move(index, index+1)"></i>
-                            <span class=delete v-on:click="del(index)">X</span>
-                        </li>
-                    </ol>
-                  <input v-model="addTodoInput" v-on:keyup.enter="addItem()" type="text">
-                  <button v-on:click="addItem()"> Add Item </button>
-              </div>`,
-      methods: {
-          addItem (){
-              if(this.addTodoInput){
-                  this.todos.push({
-                      text: this.addTodoInput,
-                      clicked: false
-                  })
-                  this.addTodoInput = ''
-              }
-          },
-          move(from, to){
-              this.todos.move(from, to);
-          },
-          del(index){
-              this.todos.splice(index, 1);
-          },
-          deleteList(){
-            this.todos = []
-            this.$emit('deleteList')
-          }
-      }
-  })
+    Vue.component('todo-list',{
+        data: () => {
+            return {
+                // todos: [
+                //     {text: 'item1'},
+                //     {text: 'item2'}
+                // ],
+                todos: [],
+                addTodoInput: ''
+            }
+        },
+        props:['name'],
+        template:`<div>
+                    <h3>
+                      {{ name }} 
+                      <span class=delete v-on:click="deleteList()">X</span>
+                    </h3>
+                      <ol>
+                          <li v-for="(todo, index) in todos" v-bind:key='todo.priority'>
+                              <span>{{todo.text}}</span>
+                              <i class="arrow up" v-on:click="move(index, index-1)"></i>
+                              <i class="arrow down" v-on:click="move(index, index+1)"></i>
+                              <span class=delete v-on:click="del(index)">X</span>
+                          </li>
+                      </ol>
+                    <input v-model="addTodoInput" v-on:keyup.enter="addItem()" type="text">
+                    <button v-on:click="addItem()"> Add Item </button>
+                </div>`,
+        methods: {
+            addItem (){
+                if(this.addTodoInput){
+                    this.todos.push({
+                        text: this.addTodoInput,
+                        clicked: false
+                    })
+                    this.addTodoInput = ''
+                }
+            },
+            move(from, to){
+                this.todos.move(from, to);
+            },
+            del(index){
+                this.todos.splice(index, 1);
+            },
+            deleteList(){
+              this.todos = []
+              this.$emit('deleteList')
+            }
+        }
+    })
 
-  var lists = new Vue({
-      el: '#lists-elt',
-      data: {
-          // listNames: [
-          //     {name: 'list1'},
-          //     {name: 'list2'}
-          // ],
-          listNames: [],
-          addListInput: ''
-      },
+    var lists = new Vue({
+        el: '#lists-elt',
+        data: {
+            // listNames: [
+            //     {name: 'list1'},
+            //     {name: 'list2'}
+            // ],
+            listNames: [],
+            addListInput: ''
+        },
 
-      template: `
-          <div>
-              <div id=main-stuff>
-                <h1> Your Todo Lists! </h1>
-                <input id="main-input'" v-model="addListInput" v-on:keyup.enter="addList()" type="text">
-                <button id="main-button'" v-on:click="addList()"> Add New List </button>
-              </div>
-              <div v-for="(list, index) in listNames" class="todo-list">
-                  <todo-list :name=list.name v-on:deleteList="del(index)"></todo-list>
-              </div>
-          </div>`,
-      methods: {
-          addList(){
-              if(this.addListInput){
-                  this.listNames.push({
-                      name: this.addListInput,
-                  })
-                  this.addListInput = ''
-              }
-          },
-          del(index){
-              this.listNames.splice(index, 1);
-          }
-      }
+        template: `
+            <div>
+                <div id=main-stuff>
+                  <h1> Your Todo Lists! </h1>
+                  <input id="main-input'" v-model="addListInput" v-on:keyup.enter="addList()" type="text">
+                  <button id="main-button'" v-on:click="addList()"> Add New List </button>
+                </div>
+                <div v-for="(list, index) in listNames" class="todo-list">
+                    <todo-list :name=list.name v-on:deleteList="del(index)"></todo-list>
+                </div>
+            </div>`,
+        methods: {
+            addList(){
+                if(this.addListInput){
+                    this.listNames.push({
+                        name: this.addListInput,
+                    })
+                    this.addListInput = ''
+                }
+            },
+            del(index){
+                this.listNames.splice(index, 1);
+            }
+        }
 
-  })
+    })
   </script>
   <script src="page.js"></script>
 </body>
