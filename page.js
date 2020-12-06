@@ -5,6 +5,7 @@ var img = document.createElement("img");
 img.src = "slowedGif.gif"
 
 function startPomodoroFunction(){
+    //clearTimeout();
     img.style.visibility = "visible";
     var imgSrc  = document.getElementById("leaves");
     imgSrc.appendChild(img);
@@ -13,6 +14,7 @@ function startPomodoroFunction(){
 function pausePomodoroFunction(){
    console.log('paused');
    setTimeout(function () {graduallyFadeAndRemoveElement(img)}, 5000);
+   
 }
 
 function graduallyFadeAndRemoveElement(elementObj){
