@@ -242,3 +242,17 @@ button[data-setter]:hover {
   #header-text {
     text-align: center;
   }
+
+
+body{
+  background:#2c3e50;
+  font-family: 'Open Sans', sans-serif;
+}
+
+ button{
+  background-color: #F7958E;
+  color:#FFFFFF;
+  text-align: center;
+}
+
+ 
