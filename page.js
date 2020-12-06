@@ -5,7 +5,9 @@ var img = document.createElement("img");
 img.src = "LEAF.svg";
 
 function startPomodoroFunction(){
-
+    var img = document.createElement("img");
+    img.src = "slowedGif.gif"
+    img.id = "leaves";
     var imgSrc  = document.getElementById("leaves");
     imgSrc.appendChild(img);
 }
@@ -28,6 +30,7 @@ function graduallyFadeAndRemoveElement(elementObj){
 
 function resetPomodoroFunction(){
   reset();
+  document.getElementById("leaves").remove();
   console.log("reset");
 }
 
@@ -179,7 +182,6 @@ function timer (seconds){ //counts time, takes seconds
       else if (setToFive == 0)
       {
         resetToTwentyMinutes();
-        startPomodoroFunction();
         setToFive = 1;
       }
       clearInterval(intervalTimer);
